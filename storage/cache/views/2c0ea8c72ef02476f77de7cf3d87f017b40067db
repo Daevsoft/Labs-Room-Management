@@ -1,0 +1,65 @@
+<div class="form-horizontal">
+    <div class="form-group row">
+        <label class="col-sm-2">Nama Anggota</label>
+        <div class="col-sm-4">
+            <?php echo(string_condition($jadwal['NamaA'],'(Tidak ada jadwal hari ini)')); ?>
+        </div>
+        <label class="col-sm-2">Tanggal Req</label>
+        <div class="col-sm-4">
+        <?php echo(string_condition($jadwal['TglPakai'],'-')); ?>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2">NIK</label>
+        <div class="col-sm-4">
+            <?php echo(string_condition($jadwal['NIK'],'-')); ?>
+        </div>
+        <label class="col-sm-2">Mulai</label>
+        <div class="col-sm-4">
+        <?php echo(substr(string_condition($jadwal['JamMulai'],'-'), 0, 5).' - '.substr(string_condition($jadwal['JamSelesai'],'-'), 0,5)); ?>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2">Ruangan?</label>
+        <div class="col-sm-4">
+            <?php echo($jadwal['Ruangan']); ?>
+        </div>
+        <label class="col-sm-2">Status</label>
+        <div class="col-sm-4">
+            <?php if(string_condition($jadwal['StatusPakai']) == 'mulai'){ ?>
+                <span class="badge badge-success"><?php echo(string_condition($jadwal['StatusPakai'],'-')); ?></span>
+            <?php }elseif($jadwal['StatusPakai'] == 'antrian'){ ?>
+                <span class="badge badge-warning"><?php echo(string_condition($jadwal['StatusPakai'],'-')); ?></span>
+            <?php }else{ ?>
+                <span class="badge badge-danger"><?php echo(string_condition($jadwal['StatusPakai'],'-')); ?></span>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+<label>Alat yang dipinjam :</label>
+<table id="tableData" class="table table-sm table-hover table-bordered table-striped">
+    <thead>
+        <tr>
+            <th class="th-sm">No</th>
+            <th>Kode Alat</th>
+            <th>Nama Alat</th>
+            <th class="th-md">Kategori</th>
+            <th class="th-md">Asal</th>
+            <th class="th-md">Jumlah Alat</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $i = 1 ?>
+        <?php foreach($alat_list as $row){ ?>
+            <tr>
+                <td class="text-center"><?php echo($i); ?></td>
+                <td><?php echo($row['KodeAlat']); ?></td>
+                <td><?php echo($row['Nama']); ?></td>
+                <td><?php echo($row['s_Kategori']); ?></td>
+                <td><?php echo($row['s_Asal']); ?></td>
+                <td><?php echo($row['JumlahAlat'].' '.$row['Satuan']); ?></td>
+            </tr>
+        <?php $i++ ?>
+        <?php } ?>
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+{
+    "name": "daevsoft/ds",
+    "version": "1.0.0",
+    "type": "project",
+    "license": "MIT",
+    "homepage": "http://localhost.com",
+    "description": "-.",
+    "authors": [
+        {
+            "name": "-",
+            "email": "-"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Daevsoft/ds/issues",
+        "source": "https://github.com/Daevsoft/ds"
+    },
+    "keywords": [
+        "",
+        "",
+        "",
+        ""
+    ],
+    "require": {
+        "php": "^7.3.2"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
